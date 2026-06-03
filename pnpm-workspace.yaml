@@ -1,0 +1,9 @@
+allowBuilds:
+  es5-ext: false
+  msw: false
+  sharp: true
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+  - es5-ext
+  - msw
