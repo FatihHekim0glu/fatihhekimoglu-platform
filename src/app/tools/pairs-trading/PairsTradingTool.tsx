@@ -155,7 +155,7 @@ export default function PairsTradingTool() {
     }
   }, [form])
 
-  const isXlk = form.universe === "xlk_v1"
+  const isXlk = form.universe === "xlk_v1" || form.universe === "sp500-pit"
 
   return (
     <main className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
@@ -171,10 +171,15 @@ export default function PairsTradingTool() {
           </p>
         </div>
         {result ? (
-          <Badge variant="outline" className="font-mono text-[11px]">
-            {result.universe} | {result.mtc_method} |{" "}
-            {result.summary.pairs_tested} pairs
-          </Badge>
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="outline" className="font-mono text-[11px]">
+              {result.universe} | {result.mtc_method} |{" "}
+              {result.summary.pairs_tested} pairs
+            </Badge>
+            <Badge variant="outline" className="font-mono text-[11px]">
+              data: {result.data_source}
+            </Badge>
+          </div>
         ) : null}
       </header>
 

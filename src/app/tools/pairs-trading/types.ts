@@ -9,9 +9,12 @@ import type { PlotlyFigure } from "@/components/PlotlyChart"
 export const UNIVERSE_OPTIONS = [
   { value: "curated_25_v1", label: "Curated 25 (v1)" },
   { value: "xlk_v1", label: "XLK constituents (v1)" },
+  { value: "sp500-pit", label: "S&P 500 (point-in-time)" },
 ] as const
 
 export type Universe = (typeof UNIVERSE_OPTIONS)[number]["value"]
+
+export type DataSource = "polygon" | "yfinance" | "cache"
 
 export const FDR_METHOD_OPTIONS = [
   { value: "benjamini_hochberg", label: "Benjamini-Hochberg (FDR)" },
@@ -27,7 +30,7 @@ export type FdrMethod = (typeof FDR_METHOD_OPTIONS)[number]["value"]
 
 export const INPUT_SCHEMA = z
   .object({
-    universe: z.enum(["curated_25_v1", "xlk_v1"]),
+    universe: z.enum(["curated_25_v1", "xlk_v1", "sp500-pit"]),
     train_start: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     train_end: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     hl_min: z.number().min(1).max(120),
@@ -73,6 +76,7 @@ export type RunResponse = {
   train_start: string
   train_end: string
   mtc_method: FdrMethod
+  data_source: DataSource
 }
 
 export type FormState = {

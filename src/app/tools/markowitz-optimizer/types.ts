@@ -58,7 +58,7 @@ export type RunResponse = {
   summary: Summary
   frontier_figure: PlotlyFigure
   weights_figure: PlotlyFigure
-  data_source: "yfinance" | "synthetic"
+  data_source: "polygon" | "yfinance" | "cache" | "synthetic"
 }
 
 // ---------------------------------------------------------------------------

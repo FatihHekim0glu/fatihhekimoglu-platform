@@ -158,10 +158,15 @@ export default function MaCrossoverBacktestTool() {
           </p>
         </div>
         {result ? (
-          <Badge variant="outline" className="font-mono text-[11px]">
-            {result.summary.ticker} · {result.summary.trading_days} bars ·{" "}
-            {result.summary.n_trades} trades
-          </Badge>
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="outline" className="font-mono text-[11px]">
+              {result.summary.ticker} · {result.summary.trading_days} bars ·{" "}
+              {result.summary.n_trades} trades
+            </Badge>
+            <Badge variant="outline" className="font-mono text-[11px]">
+              data: {result.data_source}
+            </Badge>
+          </div>
         ) : null}
       </header>
 

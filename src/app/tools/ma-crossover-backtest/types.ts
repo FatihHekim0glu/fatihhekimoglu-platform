@@ -59,12 +59,15 @@ export type Summary = {
   n_trades: number
 }
 
+export type DataSource = "polygon" | "yfinance" | "cache"
+
 export type RunResponse = {
   summary: Summary
   metrics: MetricsRow[]
   benchmark: BenchmarkStats
   equity_curve: PlotlyFigure
   underwater_drawdown: PlotlyFigure
+  data_source: DataSource
 }
 
 // ---------------------------------------------------------------------------

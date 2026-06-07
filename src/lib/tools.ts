@@ -50,6 +50,14 @@ export const TOOLS: Tool[] = [
     tags: ['quant', 'stat-arb', 'cointegration', 'equities'],
   },
   {
+    slug: 'eigen-portfolios',
+    title: 'Eigen Portfolios (PCA)',
+    blurb:
+      'PCA on S&P 500 returns to extract market + sector factors. Marchenko-Pastur RMT separates signal from noise.',
+    status: 'live',
+    tags: ['pca', 'random-matrix-theory', 'survivorship-bias-free'],
+  },
+  {
     slug: 'factorlab',
     title: 'Factorlab',
     blurb:
