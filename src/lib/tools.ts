@@ -29,17 +29,41 @@ export const TOOLS: Tool[] = [
     slug: 'ma-crossover-backtest',
     title: 'MA Crossover Backtest',
     blurb:
-      'Walk-forward MA crossover backtester with DSR and HAC-alpha. Coming soon.',
-    status: 'soon',
-    tags: ['backtest', 'walk-forward'],
+      'Long/flat SMA crossover backtester with buy-and-hold benchmark, Newey-West HAC alpha, and Memmel-corrected Sharpe difference test.',
+    status: 'live',
+    tags: ['backtest', 'equities', 'statistics'],
   },
   {
     slug: 'markowitz-optimizer',
     title: 'Markowitz Optimizer',
     blurb:
-      'Mean-variance + Black-Litterman + Ledoit-Wolf shrinkage. 562 tests, He-Litterman 1999 reproduced.',
-    status: 'soon',
-    tags: ['portfolio', 'optimization'],
+      'Mean-variance efficient frontier + tangency portfolio with Ledoit-Wolf shrinkage and Jorion-Bayes-Stein mean. Long-only / max-weight box constraints.',
+    status: 'live',
+    tags: ['portfolio', 'optimization', 'mean-variance'],
+  },
+  {
+    slug: 'pairs-trading',
+    title: 'Pairs Trading',
+    blurb:
+      'Cointegration scan over a curated universe of US equity pairs with Engle-Granger p-values, FDR correction, and OU half-life diagnostics.',
+    status: 'live',
+    tags: ['quant', 'stat-arb', 'cointegration', 'equities'],
+  },
+  {
+    slug: 'factorlab',
+    title: 'Factorlab',
+    blurb:
+      'Fama-French factor regressions with HAC standard errors, rolling betas, and a plain-English interpretation.',
+    status: 'live',
+    tags: ['finance', 'factor-models', 'fama-french', 'regression', 'quant'],
+  },
+  {
+    slug: 'stock-price-forecast',
+    title: 'Stock Price Forecast',
+    blurb:
+      'Next-N-day closing price forecast for a single ticker from a pretrained LSTM+Attention model on 14 technical features (RSI, MACD, Bollinger, MAs, lags).',
+    status: 'live',
+    tags: ['forecasting', 'deep-learning', 'lstm'],
   },
 ];
 
