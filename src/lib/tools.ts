@@ -73,6 +73,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['forecasting', 'deep-learning', 'lstm'],
   },
+  {
+    slug: 'hrp-portfolio',
+    title: 'Hierarchical Risk Parity',
+    blurb:
+      "Lopez de Prado's HRP — clustering-based allocation — benchmarked honestly OOS vs Markowitz, IVP, and naive 1/N. Lower variance, not a free Sharpe lunch.",
+    status: 'live',
+    tags: ['portfolio', 'risk', 'clustering'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
