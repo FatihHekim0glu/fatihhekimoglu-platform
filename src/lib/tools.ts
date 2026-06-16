@@ -81,6 +81,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['portfolio', 'risk', 'clustering'],
   },
+  {
+    slug: 'stock-clusters',
+    title: 'Stock Diversification Clusters',
+    blurb:
+      "Cluster the S&P 500 by correlation structure (RMT-denoised, Mantegna distance) to map its diversification skeleton — and honestly test whether cluster-aware allocation beats naive 1/N after costs (it usually doesn't).",
+    status: 'live',
+    tags: ['clustering', 'diversification', 'correlation'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
