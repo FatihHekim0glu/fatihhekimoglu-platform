@@ -89,6 +89,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['clustering', 'diversification', 'correlation'],
   },
+  {
+    slug: 'lendingclub-default',
+    title: 'LendingClub Default Classifier',
+    blurb:
+      "Score a loan application's probability of default at origination with a leakage-free, calibrated XGBoost model — honest AUC/PR-AUC, calibrated risk decile, and reason codes (no profit claims, ranks risk rather than predicting individuals).",
+    status: 'live',
+    tags: ['credit', 'classification', 'calibration'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
