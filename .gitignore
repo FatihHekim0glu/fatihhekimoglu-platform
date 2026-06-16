@@ -45,3 +45,4 @@ next-env.d.ts
 
 # AI session artifacts — never commit
 .claude/
+.vercel.token
