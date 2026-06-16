@@ -275,7 +275,11 @@ const VERDICT_BADGE_VARIANT: Record<
 
 const INITIAL_FORM: FormState = {
   tickers: DEFAULT_TICKERS,
-  universe: "sp500_pit",
+  // Default to the visible curated large-cap list: a clicked Run returns a fast,
+  // real-data cluster map. The full point-in-time S&P 500 (sp500_pit) is the
+  // heavy research path — opt into it for the survivorship-clean diversification
+  // backtest, not for the interactive cluster map.
+  universe: "custom",
   start: defaultStart(),
   end: defaultEnd(),
   method: "both",
