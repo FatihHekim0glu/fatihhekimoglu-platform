@@ -121,6 +121,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['anomaly-detection', 'unsupervised', 'market-stress'],
   },
+  {
+    slug: 'lstm-forecast',
+    title: 'LSTM Stock Forecast (Done Properly)',
+    blurb:
+      'A leakage-free rebuild of the classic LSTM stock-price-prediction project: predict next-day RETURNS (not price levels), validate with purged walk-forward, and honestly test against a random-walk baseline — the documented result is that the LSTM does NOT beat naive persistence.',
+    status: 'live',
+    tags: ['deep-learning', 'time-series', 'honest-null'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
