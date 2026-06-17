@@ -145,6 +145,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['nlp', 'sentiment', 'alternative-data'],
   },
+  {
+    slug: 'nn-vs-bs',
+    title: 'Options: NN vs Black-Scholes',
+    blurb:
+      "Price European options two ways — a from-scratch Black-Scholes closed form vs a small neural net — and compare them honestly. On synthetic BS data the NN can only RECOVER the BS surface (a sanity check, not an edge); on real chains, constant-vol BS misprices the smile. Reprice error only — no tradable P&L is claimed.",
+    status: 'live',
+    tags: ['options', 'black-scholes', 'neural-net'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
