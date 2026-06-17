@@ -105,6 +105,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['crypto', 'arbitrage', 'market-microstructure'],
   },
+  {
+    slug: 'regime-hmm',
+    title: 'Market Regime HMM',
+    blurb:
+      "Fit a Gaussian Hidden Markov Model to index returns to label market regimes (low-vol bull / high-vol bear / crisis) — then honestly test whether a regime-timing overlay beats buy-and-hold out-of-sample after costs (spoiler: characterization is the win, timing is not).",
+    status: 'live',
+    tags: ['regimes', 'macro', 'hmm'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
