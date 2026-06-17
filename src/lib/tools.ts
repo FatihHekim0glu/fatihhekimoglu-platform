@@ -129,6 +129,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['deep-learning', 'time-series', 'honest-null'],
   },
+  {
+    slug: 'volforecast',
+    title: 'GARCH vs ML Volatility Forecast',
+    blurb:
+      "Forecast realized volatility of a stock index and honestly test whether XGBoost or an LSTM beats a well-specified GARCH(1,1)/HAR-RV out-of-sample (QLIKE + Diebold-Mariano + Hansen SPA) — spoiler from Hansen & Lunde 2005: GARCH is hard to beat.",
+    status: 'live',
+    tags: ['volatility', 'garch', 'forecasting'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
