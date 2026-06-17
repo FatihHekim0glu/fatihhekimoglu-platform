@@ -55,8 +55,11 @@ function defaultEnd(): string {
 }
 
 function defaultStart(): string {
+  // Default to a 5-year window: the regime overlay runs a per-fold-refit
+  // walk-forward, so a 10y/3-state default would take ~70s on the backend.
+  // 5y keeps the default Run ~30s; users can widen the range for a deeper history.
   const d = new Date()
-  d.setUTCFullYear(d.getUTCFullYear() - 10)
+  d.setUTCFullYear(d.getUTCFullYear() - 5)
   return isoDate(d)
 }
 
