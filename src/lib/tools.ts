@@ -113,6 +113,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['regimes', 'macro', 'hmm'],
   },
+  {
+    slug: 'anomaly-detector',
+    title: 'Market Anomaly Detector',
+    blurb:
+      "Flag anomalous trading days in liquid ETFs with two independent unsupervised detectors (Isolation Forest + a PCA reconstruction-error autoencoder) under a strictly causal walk-forward refit — they agree on a core of known stress dates, but the flags are diagnostic, not tradable.",
+    status: 'live',
+    tags: ['anomaly-detection', 'unsupervised', 'market-stress'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
