@@ -97,6 +97,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['credit', 'classification', 'calibration'],
   },
+  {
+    slug: 'crypto-arb-scanner',
+    title: 'Crypto Arbitrage Scanner',
+    blurb:
+      "Decompose cross-exchange and triangular crypto spreads into a fee-, depth-, and transfer-cost-aware gross->net waterfall — the raw spread looks profitable, but the net executable edge on liquid pairs collapses to ~0 after costs (latency arb is an HFT game, not a REST one).",
+    status: 'live',
+    tags: ['crypto', 'arbitrage', 'market-microstructure'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
