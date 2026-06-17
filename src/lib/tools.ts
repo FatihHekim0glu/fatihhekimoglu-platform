@@ -137,6 +137,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['volatility', 'garch', 'forecasting'],
   },
+  {
+    slug: 'wsb-sentiment-signal',
+    title: 'WSB Sentiment Signal',
+    blurb:
+      'Turn r/wallstreetbets chatter into a daily per-ticker sentiment signal and honestly test whether it predicts next-day returns on a point-in-time S&P 500 universe — with Deflated Sharpe, PBO/CSCV and HAC. Spoiler: the in-sample edge largely decays out-of-sample after costs.',
+    status: 'live',
+    tags: ['nlp', 'sentiment', 'alternative-data'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
