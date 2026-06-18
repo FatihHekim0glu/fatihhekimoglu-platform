@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ResearchCard } from "@/components/ResearchCard";
 import { ToolCard } from "@/components/ToolCard";
-import { TOOLS } from "@/lib/tools";
+import { RESEARCH, TOOLS } from "@/lib/tools";
 
 export const metadata: Metadata = {
-  title: "Fatih Hekimoglu — Quantitative Tools",
+  title: "Fatih Hekimoglu - Quantitative Tools",
   description:
     "Quantitative tools, hand-rolled and verified against the literature. Stock dashboards, options analytics, and more.",
   openGraph: {
-    title: "Fatih Hekimoglu — Quantitative Tools",
+    title: "Fatih Hekimoglu - Quantitative Tools",
     description:
       "Quantitative tools, hand-rolled and verified against the literature.",
     url: "https://fatihhekimoglu.com",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fatih Hekimoglu — Quantitative Tools",
+    title: "Fatih Hekimoglu - Quantitative Tools",
     description:
       "Quantitative tools, hand-rolled and verified against the literature.",
   },
@@ -77,7 +78,7 @@ export default function HomePage() {
 
           {visibleTools.length === 0 ? (
             <p className="text-sm text-muted-foreground">
-              No tools published yet — check back soon.
+              No tools published yet - check back soon.
             </p>
           ) : (
             <ul
@@ -91,6 +92,37 @@ export default function HomePage() {
               ))}
             </ul>
           )}
+        </section>
+
+        <section
+          aria-labelledby="research-heading"
+          className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
+        >
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <h2
+                id="research-heading"
+                className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+              >
+                Research
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Open-source quantitative research. Each repo is honest about what
+                does and does not beat its baseline.
+              </p>
+            </div>
+          </div>
+
+          <ul
+            role="list"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {RESEARCH.map((project) => (
+              <li key={project.slug} className="h-full">
+                <ResearchCard project={project} />
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
 
