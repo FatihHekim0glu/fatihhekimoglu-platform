@@ -146,6 +146,14 @@ export const TOOLS: Tool[] = [
     tags: ['nlp', 'sentiment', 'alternative-data'],
   },
   {
+    slug: 'finbert-sentiment',
+    title: 'FinBERT Sentiment Classifier',
+    blurb:
+      '3-way financial-sentence sentiment (negative/neutral/positive) — a from-scratch DistilBERT fine-tune (ONNX-served) benchmarked honestly against class-prior and lexicon baselines on the Financial PhraseBank. Macro-F1 with bootstrap CIs; sentiment is a text label, not a tradable signal.',
+    status: 'live',
+    tags: ['nlp', 'transformers', 'sentiment'],
+  },
+  {
     slug: 'nn-vs-bs',
     title: 'Options: NN vs Black-Scholes',
     blurb:
