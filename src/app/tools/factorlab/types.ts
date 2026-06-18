@@ -3,7 +3,7 @@ import { z } from "zod"
 import type { PlotlyFigure } from "@/components/PlotlyChart"
 
 // ---------------------------------------------------------------------------
-// Catalogs — must match the backend literals.
+// Catalogs - must match the backend literals.
 // ---------------------------------------------------------------------------
 
 export const MODEL_OPTIONS = ["CAPM", "FF3", "FF4", "FF5", "FF6"] as const

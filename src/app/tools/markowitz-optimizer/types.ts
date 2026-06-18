@@ -3,7 +3,7 @@ import { z } from "zod"
 import type { PlotlyFigure } from "@/components/PlotlyChart"
 
 // ---------------------------------------------------------------------------
-// Catalogues — must match the backend Literal types.
+// Catalogues - must match the backend Literal types.
 // ---------------------------------------------------------------------------
 
 export const COV_METHODS = ["Sample", "LedoitWolf"] as const
@@ -18,7 +18,7 @@ export const DEFAULT_TICKERS =
 export const TICKER_LIST_RE = /^[A-Za-z0-9.\-,\s]+$/
 
 // ---------------------------------------------------------------------------
-// Request schema — mirrors api/routers/markowitz_optimizer.MarkowitzRequest.
+// Request schema - mirrors api/routers/markowitz_optimizer.MarkowitzRequest.
 // ---------------------------------------------------------------------------
 
 export const RunRequestSchema = z.object({
@@ -36,7 +36,7 @@ export const RunRequestSchema = z.object({
 export type RunRequest = z.infer<typeof RunRequestSchema>
 
 // ---------------------------------------------------------------------------
-// Response — mirrors MarkowitzResponse.
+// Response - mirrors MarkowitzResponse.
 // ---------------------------------------------------------------------------
 
 export type FrontierPoint = {
@@ -62,7 +62,7 @@ export type RunResponse = {
 }
 
 // ---------------------------------------------------------------------------
-// Form state — string-typed numerics so the user can type freely.
+// Form state - string-typed numerics so the user can type freely.
 // ---------------------------------------------------------------------------
 
 export type FormState = {

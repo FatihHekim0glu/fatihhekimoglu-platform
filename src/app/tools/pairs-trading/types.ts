@@ -3,7 +3,7 @@ import { z } from "zod"
 import type { PlotlyFigure } from "@/components/PlotlyChart"
 
 // ---------------------------------------------------------------------------
-// Catalogs — must match the backend Literal types.
+// Catalogs - must match the backend Literal types.
 // ---------------------------------------------------------------------------
 
 export const UNIVERSE_OPTIONS = [

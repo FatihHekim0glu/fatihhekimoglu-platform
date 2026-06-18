@@ -114,7 +114,7 @@ export default function StockPriceForecastTool() {
   }, [form])
 
   const lastCloseLabel = useMemo(() => {
-    if (!result) return "—"
+    if (!result) return "-"
     return `$${fmtNum(result.summary.last_close)}`
   }, [result])
 
@@ -179,7 +179,7 @@ export default function StockPriceForecastTool() {
                 label="First Forecast"
                 value={
                   result.summary.first_forecast_close === null
-                    ? "—"
+                    ? "-"
                     : `$${fmtNum(result.summary.first_forecast_close)}`
                 }
               />
@@ -187,7 +187,7 @@ export default function StockPriceForecastTool() {
                 label="Final Forecast"
                 value={
                   result.summary.final_forecast_close === null
-                    ? "—"
+                    ? "-"
                     : `$${fmtNum(result.summary.final_forecast_close)}`
                 }
               />

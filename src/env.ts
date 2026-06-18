@@ -12,7 +12,7 @@ const publicSchema = z.object({
 
 /**
  * Schema for server-only variables. Optional because not every server path needs
- * write access — only privileged code paths should require this key.
+ * write access - only privileged code paths should require this key.
  *
  * Note: Next inlines empty `KEY=` lines as the empty string, not undefined. We
  * pre-coerce '' -> undefined before validating so an empty value is treated as

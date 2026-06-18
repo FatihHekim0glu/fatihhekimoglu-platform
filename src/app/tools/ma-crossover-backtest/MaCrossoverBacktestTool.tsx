@@ -107,7 +107,7 @@ function trendOf(value: number | null | undefined): MetricTrend {
 }
 
 function pctOrNum(name: string, value: number | null): string {
-  if (value === null) return "—"
+  if (value === null) return "-"
   // CAGR / Annual vol / Max drawdown are ratios; Sharpe / Sortino are plain numbers.
   const isPct = name === "CAGR" || name === "Annual vol" || name === "Max drawdown"
   return isPct ? fmtPct(value) : fmtNum(value)

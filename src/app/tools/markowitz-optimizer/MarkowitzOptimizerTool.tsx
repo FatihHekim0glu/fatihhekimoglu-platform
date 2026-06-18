@@ -37,7 +37,7 @@ import {
 } from "./types"
 
 // ---------------------------------------------------------------------------
-// Date helpers — default to "today" and "today - 5y" without pulling in dayjs.
+// Date helpers - default to "today" and "today - 5y" without pulling in dayjs.
 // ---------------------------------------------------------------------------
 
 function isoDate(d: Date): string {

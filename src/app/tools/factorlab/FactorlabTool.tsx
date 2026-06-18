@@ -97,7 +97,7 @@ function buildRequest(
 }
 
 // ---------------------------------------------------------------------------
-// Defaults — mirror the source streamlit defaults from the recon.
+// Defaults - mirror the source streamlit defaults from the recon.
 // ---------------------------------------------------------------------------
 
 const DEFAULT_FORM: FormState = {
