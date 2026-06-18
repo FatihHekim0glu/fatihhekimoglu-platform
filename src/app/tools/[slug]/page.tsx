@@ -20,11 +20,11 @@ export async function generateMetadata({
 
   if (!tool || tool.status === "archived") {
     return {
-      title: "Tool not found — Fatih Hekimoglu",
+      title: "Tool not found - Fatih Hekimoglu",
     };
   }
 
-  const title = `${tool.title} — Fatih Hekimoglu`;
+  const title = `${tool.title} - Fatih Hekimoglu`;
 
   return {
     title,

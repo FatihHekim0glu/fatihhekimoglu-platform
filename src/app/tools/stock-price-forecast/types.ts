@@ -3,7 +3,7 @@ import { z } from "zod"
 import type { PlotlyFigure } from "@/components/PlotlyChart"
 
 // ---------------------------------------------------------------------------
-// Inputs — mirrors the backend Pydantic model exactly.
+// Inputs - mirrors the backend Pydantic model exactly.
 // ---------------------------------------------------------------------------
 
 export const TICKER_RE = /^[A-Z0-9.\-]{1,15}$/
@@ -29,7 +29,7 @@ export const INPUT_SCHEMA = z.object({
 export type RunRequest = z.infer<typeof INPUT_SCHEMA>
 
 // ---------------------------------------------------------------------------
-// Response — mirrors api/routers/stock_price_forecast.py.
+// Response - mirrors api/routers/stock_price_forecast.py.
 // ---------------------------------------------------------------------------
 
 export type ForecastRow = {

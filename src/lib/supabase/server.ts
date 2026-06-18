@@ -24,7 +24,7 @@ export async function createClient() {
               cookieStore.set(name, value, options);
             });
           } catch {
-            // Called from a Server Component — cookies are read-only here.
+            // Called from a Server Component - cookies are read-only here.
             // The middleware refreshes the session, so this is safe to ignore.
           }
         },

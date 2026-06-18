@@ -3,7 +3,7 @@ import { z } from "zod"
 import type { PlotlyFigure } from "@/components/PlotlyChart"
 
 // ---------------------------------------------------------------------------
-// Indicator catalog — must match the backend literal.
+// Indicator catalog - must match the backend literal.
 // ---------------------------------------------------------------------------
 
 export const INDICATOR_OPTIONS = [
