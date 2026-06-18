@@ -169,6 +169,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['nlp', 'edgar', 'sentiment', 'readability'],
   },
+  {
+    slug: 'mvts-forecast',
+    title: 'Multivariate Transformer Forecast',
+    blurb:
+      "Benchmark PatchTST and an interpretable transformer against LSTM, ARIMA and a naive random-walk baseline on a multivariate financial time series, with leakage-safe RevIN + purged walk-forward and Deflated-Sharpe / Diebold-Mariano honesty. Spoiler: on noisy daily returns the deep models don't reliably beat naive.",
+    status: 'live',
+    tags: ['deep-learning', 'transformers', 'time-series', 'honest-null'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
@@ -189,4 +197,5 @@ export const RESEARCH: ResearchProject[] = [
   { slug: "stock-clusters", title: "Stock Return Clusters", blurb: "Return-correlation clustering with random-matrix denoising and Mantegna distance. The clusters rediscover sector structure, but cluster-aware allocation does not beat naive 1/N.", repoUrl: "https://github.com/FatihHekim0glu/stock-clusters", tags: ["clustering", "correlation", "rmt"] },
   { slug: "lendingclub-default", title: "Loan Default Model", blurb: "A leakage-free, calibrated gradient-boosted model for loan-default probability at origination. It ranks risk and reports calibration rather than predicting individuals.", repoUrl: "https://github.com/FatihHekim0glu/lendingclub-default", tags: ["credit-risk", "classification", "calibration"] },
   { slug: "risk-metrics", title: "Risk Metrics", blurb: "A small library of risk and performance statistics for return series, parity-tested against reference implementations.", repoUrl: "https://github.com/FatihHekim0glu/risk-metrics", tags: ["risk", "performance", "statistics"] },
+  { slug: "mvts-forecast", title: "Multivariate Transformer Forecast", blurb: "PatchTST and an interpretable transformer benchmarked against LSTM, ARIMA and a naive random walk on a multivariate panel, with leakage-safe RevIN, a purged walk-forward and Deflated-Sharpe / Diebold-Mariano honesty. A documented null: on noisy daily returns the deep models do not reliably beat naive.", repoUrl: "https://github.com/FatihHekim0glu/mvts-forecast", tags: ["deep-learning", "transformers", "time-series"] },
 ];
