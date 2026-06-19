@@ -193,6 +193,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['causal-inference', 'event-study', 'econometrics', 'honest-null'],
   },
+  {
+    slug: 'rl-trader',
+    title: 'RL Trading Agent (Realistic Backtest)',
+    blurb:
+      "Train a PPO agent in a single-asset trading environment with transaction costs, slippage and position limits, evaluated out-of-sample inside a purged walk-forward with a vectorized-vs-stepwise parity oracle and a seed-lottery overfit check. Spoiler: across training seeds the agent doesn't reliably beat buy-and-hold net of costs — the OOS Sharpe is indistinguishable from zero after a Deflated-Sharpe correction.",
+    status: 'live',
+    tags: ['reinforcement-learning', 'backtesting', 'overfitting', 'honest-null'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
@@ -216,4 +224,5 @@ export const RESEARCH: ResearchProject[] = [
   { slug: "mvts-forecast", title: "Multivariate Transformer Forecast", blurb: "PatchTST and an interpretable transformer benchmarked against LSTM, ARIMA and a naive random walk on a multivariate panel, with leakage-safe RevIN, a purged walk-forward and Deflated-Sharpe / Diebold-Mariano honesty. A documented null: on noisy daily returns the deep models do not reliably beat naive.", repoUrl: "https://github.com/FatihHekim0glu/mvts-forecast", tags: ["deep-learning", "transformers", "time-series"] },
   { slug: "gnn-stocks", title: "Graph Neural Network on Stocks", blurb: "A dense-adjacency GCN and GraphSAGE over a point-in-time stock-relationship graph, benchmarked against per-node ridge and cross-sectional-momentum baselines for next-period return ranking, with leakage-safe per-fold graphs, a purged walk-forward and Deflated-Sharpe / Diebold-Mariano honesty. A documented null: message-passing recovers sector structure but does not reliably beat the baselines out of sample.", repoUrl: "https://github.com/FatihHekim0glu/gnn-stocks", tags: ["graph-neural-network", "deep-learning", "cross-section"] },
   { slug: "fed-causal", title: "Causal Inference on Fed Announcements", blurb: "A leakage-free event study of cumulative abnormal returns around FOMC announcements with an estimation-window-only market model, stressed with placebo-date randomization, HAC/clustered standard errors, a multiple-testing correction and a rate-sensitivity difference-in-differences. A documented null: the move is honest cross-sectional heterogeneity (rate-sensitive names move more), not a placebo-robust tradable alpha.", repoUrl: "https://github.com/FatihHekim0glu/fed-causal", tags: ["causal-inference", "event-study", "econometrics"] },
+  { slug: "rl-trader", title: "RL Trading Agent (Realistic Backtest)", blurb: "A PPO agent trained in a realistic, cost-aware single-asset trading environment (transaction costs, slippage, position limits, strictly causal next-bar reward), evaluated out-of-sample inside a purged walk-forward with a vectorized-vs-stepwise parity oracle (the look-ahead catch) and a seed-lottery overfit check. The policy is trained offline across seeds and served via ONNX; the baselines run live. A documented null: across training seeds the agent does not reliably beat buy-and-hold net of costs — the OOS Sharpe is dispersed around and statistically indistinguishable from zero after a Deflated-Sharpe correction. Execution is simulated, not a live broker.", repoUrl: "https://github.com/FatihHekim0glu/rl-trader", tags: ["reinforcement-learning", "backtesting", "overfitting"] },
 ];
