@@ -185,6 +185,14 @@ export const TOOLS: Tool[] = [
     status: 'live',
     tags: ['graph-neural-network', 'deep-learning', 'cross-section', 'honest-null'],
   },
+  {
+    slug: 'fed-causal',
+    title: 'Causal Inference on Fed Announcements',
+    blurb:
+      "Run an event study of cumulative abnormal returns around FOMC announcements with an estimation-window-only market model, then stress the effect with placebo-date randomization, HAC/clustered standard errors, a multiple-testing correction and a rate-sensitivity difference-in-differences. Spoiler: the move is cross-sectional heterogeneity, not a tradable causal alpha.",
+    status: 'live',
+    tags: ['causal-inference', 'event-study', 'econometrics', 'honest-null'],
+  },
 ];
 
 /** Look up a tool by its URL slug. Returns undefined when unknown. */
@@ -207,4 +215,5 @@ export const RESEARCH: ResearchProject[] = [
   { slug: "risk-metrics", title: "Risk Metrics", blurb: "A small library of risk and performance statistics for return series, parity-tested against reference implementations.", repoUrl: "https://github.com/FatihHekim0glu/risk-metrics", tags: ["risk", "performance", "statistics"] },
   { slug: "mvts-forecast", title: "Multivariate Transformer Forecast", blurb: "PatchTST and an interpretable transformer benchmarked against LSTM, ARIMA and a naive random walk on a multivariate panel, with leakage-safe RevIN, a purged walk-forward and Deflated-Sharpe / Diebold-Mariano honesty. A documented null: on noisy daily returns the deep models do not reliably beat naive.", repoUrl: "https://github.com/FatihHekim0glu/mvts-forecast", tags: ["deep-learning", "transformers", "time-series"] },
   { slug: "gnn-stocks", title: "Graph Neural Network on Stocks", blurb: "A dense-adjacency GCN and GraphSAGE over a point-in-time stock-relationship graph, benchmarked against per-node ridge and cross-sectional-momentum baselines for next-period return ranking, with leakage-safe per-fold graphs, a purged walk-forward and Deflated-Sharpe / Diebold-Mariano honesty. A documented null: message-passing recovers sector structure but does not reliably beat the baselines out of sample.", repoUrl: "https://github.com/FatihHekim0glu/gnn-stocks", tags: ["graph-neural-network", "deep-learning", "cross-section"] },
+  { slug: "fed-causal", title: "Causal Inference on Fed Announcements", blurb: "A leakage-free event study of cumulative abnormal returns around FOMC announcements with an estimation-window-only market model, stressed with placebo-date randomization, HAC/clustered standard errors, a multiple-testing correction and a rate-sensitivity difference-in-differences. A documented null: the move is honest cross-sectional heterogeneity (rate-sensitive names move more), not a placebo-robust tradable alpha.", repoUrl: "https://github.com/FatihHekim0glu/fed-causal", tags: ["causal-inference", "event-study", "econometrics"] },
 ];
