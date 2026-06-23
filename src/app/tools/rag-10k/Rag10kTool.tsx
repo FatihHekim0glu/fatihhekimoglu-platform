@@ -133,7 +133,9 @@ const INITIAL_FORM: FormState = {
   question: "What are the company's primary risk factors?",
   ticker: DEFAULT_TICKER,
   top_k: String(DEFAULT_TOP_K),
-  mode: "auto",
+  // Default to the key-free extractive answer so casual visitors never spend LLM
+  // credits; selecting "generative" is a deliberate opt-in to the LLM path.
+  mode: "extractive",
   data_source_pref: "cache",
 }
 
