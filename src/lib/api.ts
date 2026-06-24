@@ -1,5 +1,51 @@
 import { env } from '@/env';
 
+/**
+ * Default per-request timeout. The backend is a scale-to-zero Fly.io app, so the
+ * first request after idle cold-starts and can take many seconds. We give it a
+ * generous window before aborting so a cold start has a chance to wake up, but
+ * still bound it so a stuck request can never hang the UI indefinitely.
+ */
+const DEFAULT_TIMEOUT_MS = 120_000;
+
+/**
+ * Normalise a FastAPI `.detail` payload into a human-readable string.
+ *
+ * FastAPI returns `.detail` in (at least) three shapes:
+ *  - a plain string (e.g. raised `HTTPException(detail="...")`)
+ *  - an array of validation errors on 422 (`[{ loc, msg, type }, ...]`)
+ *  - a single error object with a `msg` field
+ *
+ * The array case is the one that previously rendered as "[object Object]";
+ * here we join the `msg` fields into a readable message.
+ */
+export function detailMessage(detail: unknown): string | undefined {
+  if (typeof detail === 'string') {
+    return detail || undefined;
+  }
+
+  if (Array.isArray(detail)) {
+    const messages = detail
+      .map((item) => {
+        if (typeof item === 'string') return item;
+        if (item && typeof item === 'object' && 'msg' in item) {
+          const msg = (item as { msg?: unknown }).msg;
+          if (typeof msg === 'string') return msg;
+        }
+        return undefined;
+      })
+      .filter((msg): msg is string => Boolean(msg));
+    return messages.length > 0 ? messages.join('; ') : undefined;
+  }
+
+  if (detail && typeof detail === 'object' && 'msg' in detail) {
+    const msg = (detail as { msg?: unknown }).msg;
+    if (typeof msg === 'string') return msg || undefined;
+  }
+
+  return undefined;
+}
+
 /** Error thrown by the api() wrapper on any non-2xx response. */
 export class ApiError extends Error {
   /** HTTP status code returned by the backend. */
@@ -8,10 +54,22 @@ export class ApiError extends Error {
   public readonly detail: unknown;
 
   constructor(status: number, detail: unknown, message?: string) {
-    super(message ?? (typeof detail === 'string' ? detail : `Request failed (${status})`));
+    super(message ?? detailMessage(detail) ?? `Request failed (${status})`);
     this.name = 'ApiError';
     this.status = status;
     this.detail = detail;
+  }
+}
+
+/**
+ * Error thrown when a request is aborted by the timeout below (a likely
+ * cold-start hang) rather than by the caller. Surfaces a friendly message
+ * telling the user the backend may be waking up.
+ */
+export class ApiTimeoutError extends Error {
+  constructor() {
+    super('Request timed out — the backend may be waking up, try again.');
+    this.name = 'ApiTimeoutError';
   }
 }
 
@@ -34,7 +92,38 @@ export async function api<TResp>(path: string, init?: RequestInit): Promise<TRes
   }
   headers.set('accept', 'application/json');
 
-  const res = await fetch(url, { ...init, headers });
+  // Abort the request if it hangs (likely a Fly.io cold start) so the UI can
+  // surface a friendly message instead of spinning forever. We chain any
+  // caller-supplied signal so external aborts still work.
+  const controller = new AbortController();
+  const callerSignal = init?.signal;
+  if (callerSignal) {
+    if (callerSignal.aborted) {
+      controller.abort(callerSignal.reason);
+    } else {
+      callerSignal.addEventListener('abort', () => controller.abort(callerSignal.reason), {
+        once: true,
+      });
+    }
+  }
+  let timedOut = false;
+  const timeoutId = setTimeout(() => {
+    timedOut = true;
+    controller.abort();
+  }, DEFAULT_TIMEOUT_MS);
+
+  let res: Response;
+  try {
+    res = await fetch(url, { ...init, headers, signal: controller.signal });
+  } catch (err) {
+    // Distinguish our timeout abort from a caller abort or a network failure.
+    if (timedOut) {
+      throw new ApiTimeoutError();
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   let body: unknown = null;
   const text = await res.text();
